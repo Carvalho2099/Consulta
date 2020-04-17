@@ -63,10 +63,13 @@
                 </div>
                 <div class="modulo consulta">
                     <h3>Paciente {{nome}}</h3>
-                    <div class="form-group">
-                        <input type="text" rows="16" cols="165" id="consulta" class="form-control"
-                            *ngIf="textoconsulta == null">
-                    </div>
+                    <form [formGroup]="name" (ngSubmit)="onSubmit()">
+                        <div class="form-group">
+                            <input type="text" rows="16" cols="165" formControlName="consulta" class="form-control"
+                                *ngIf="textoconsulta == null">
+                        </div>
+                    </form>
+                    
 
 
                     <textarea rows="16" cols="165" *ngIf="textoconsulta != null">

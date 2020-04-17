@@ -3,16 +3,14 @@
     box-sizing: border-box;
 }
 body{
-    /*a altura é dividia em 100 partes e esse valor 100vh significa que está ocupando toda a altura */
     height: 100vh;
-    /* ao utilizar o 100vh cria uma mrgem automaticamente então retiramos essa margem chumbando o valor zero */
+ 
     margin: 0px;
     display: grid;
-    grid-template-rows: 50px 1fr ; /*divide a linha em tres partes, e define a linha do meio como um fragmento que seria o que sobrou*/
-    grid-template-columns: 1fr; /*define a coluna como um unico pragmento ou seja, ocupara todo o campo*/
+    grid-template-rows: 50px 1fr ; 
+    grid-template-columns: 1fr; 
     grid-template-areas: 
-    /* esses campos não são definidos pelo nome das classes ou ids e sim pelo valor recebido em grid-area */
-    /* define a ordem que aprecera o cabecalho, principal e rodapé */
+    
     "cabecalho" 
     "principal" 
     ;
@@ -56,13 +54,13 @@ body{
 }
 
 .modulos{
-    display: flex; /*coloca todos os elementos na mesma linha*/
-    flex-wrap: wrap; /*permite quebra de linha caso não caiba todos elementos na mesma linha*/
-    justify-content: space-around; /*coloca espaço entre os elementos, em ambos os lados*/
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: space-around; 
 }
 
 .modulo{
-    /* flex-basis: 32%; informa a largura do elemento */
+    
     margin-bottom: 20px;
     border-radius: 5px;
     overflow-y: hidden;

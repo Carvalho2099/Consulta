@@ -12,13 +12,16 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { NameEditorComponent } from './name-editor/name-editor.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavComponent
+    NavComponent,
+    NameEditorComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +32,7 @@ import { FormsModule } from '@angular/forms';
     MatSnackBarModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule
     
   ],
   providers: [

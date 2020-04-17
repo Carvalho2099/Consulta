@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { ContatoService } from './../../../contato.service';
 import { Component, OnInit } from '@angular/core';
 import { finalize } from 'rxjs/operators';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule, FormBuilder }   from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-nav',
@@ -10,6 +11,7 @@ import { FormsModule }   from '@angular/forms';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
+  name: FormGroup;
   progress: boolean = true;
   totalPacientes = [];
   atendidos = [];
@@ -23,11 +25,20 @@ export class NavComponent implements OnInit {
 
   constructor(
     private _appService: ContatoService,
-    private hhtp: HttpClient
+    private hhtp: HttpClient,
+    private fb: FormBuilder,
   ) { }
 
   ngOnInit(): void {
-    this.listar()
+    this.listar();
+    this.createForm();
+  }
+    onSubmit() { }
+
+  createForm(){
+    this.name = this.fb.group({
+      consulta: new FormControl(''),
+    });
   }
 
   listar() {
@@ -63,15 +74,15 @@ export class NavComponent implements OnInit {
     this.esconderBotao = true;
   }
   salvarConsulta(){
-    this.consulta = document.getElementById('consulta').nodeValue;
+    this.consulta = this.name.getRawValue().consulta;
     let obj = {nomePaciente: this.nome, id: this.id, consulta: this.consulta}
     this._appService.postItems('api/pacientes/CadastrarConsulta', obj).pipe(
       finalize(() => {
-        //setTimeout(() => this.progress = false, 200);
+       
       })
     ).subscribe(dados => {
     }, error => {
-      // this._toastr.error('Falha ao buscar as Solicitações de Cancelamento - ' + error.error, "Erro");
+     
     });
   }
 }
