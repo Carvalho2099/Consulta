@@ -1,0 +1,109 @@
+* {
+    font-family: 'Oswald', sans-serif;
+    box-sizing: border-box;
+}
+body{
+    /*a altura é dividia em 100 partes e esse valor 100vh significa que está ocupando toda a altura */
+    height: 100vh;
+    /* ao utilizar o 100vh cria uma mrgem automaticamente então retiramos essa margem chumbando o valor zero */
+    margin: 0px;
+    display: grid;
+    grid-template-rows: 50px 1fr ; /*divide a linha em tres partes, e define a linha do meio como um fragmento que seria o que sobrou*/
+    grid-template-columns: 1fr; /*define a coluna como um unico pragmento ou seja, ocupara todo o campo*/
+    grid-template-areas: 
+    /* esses campos não são definidos pelo nome das classes ou ids e sim pelo valor recebido em grid-area */
+    /* define a ordem que aprecera o cabecalho, principal e rodapé */
+    "cabecalho" 
+    "principal" 
+    ;
+}
+.cabecalho{
+    grid-area: cabecalho;
+    background-color: #1867c0;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 5px;
+    z-index: 1;
+    box-shadow: 0px 4px 9px -2px rgba(0, 0, 0, 0.75);
+}
+.cabecalho > h1{
+    margin: 0px;
+    font-weight: 300;
+    font-size: 2.8rem;
+}
+.cabecalho > h2{
+    margin: 0px;
+    font-weight: 200;
+    font-size: 1.6rem;
+}
+.principal{
+    grid-area: principal;
+    /*esse calculo está pegando um campo todo e tirando exatamente o valor do cabecalho e rodape*/
+    height: calc(100vh - 50px); 
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+.conteudo{
+    position: relative;
+    height: 100%;
+    overflow-y: scroll;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.2);
+}
+
+.modulos{
+    display: flex; /*coloca todos os elementos na mesma linha*/
+    flex-wrap: wrap; /*permite quebra de linha caso não caiba todos elementos na mesma linha*/
+    justify-content: space-around; /*coloca espaço entre os elementos, em ambos os lados*/
+}
+
+.modulo{
+    /* flex-basis: 32%; informa a largura do elemento */
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.modulo > h3{
+   margin: 0px;
+   color: #fff;
+   font-weight: 300;
+   font-size: 1.5rem;
+   padding: 10px 20px;
+   background: #1867c0; 
+}
+.modulo > ul{
+    margin: 0px;
+    padding: 10px;
+    list-style: none;
+}
+.modulo > ul > li{
+    padding: 7px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+.modulo > ul > li > a{
+    display: flex;
+    text-decoration: none;
+    color: #222;
+}
+.modulo > ul > li:hover{
+    background-color: #EEE;
+}
+
+.modulo.verde{ border: 2px solid #4CAF50;
+width: 300px;
+max-height: 500px;
+}
+.modulo.verde > h3{ background-color: #4CAF50;}
+
+.modulo.vermelho{ border: 2px solid #F44336;
+width: 850px;
+max-height: 500px;}
+.modulo.vermelho > h3{ background-color: #F44336;}
+
+
+
