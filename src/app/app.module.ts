@@ -11,6 +11,8 @@ import { NavComponent } from './components/template/nav/nav.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -25,10 +27,13 @@ import { HttpClientModule } from '@angular/common/http';
     MatSidenavModule,
     MatListModule,
     MatSnackBarModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    
   ],
   providers: [
     ContatoService,
+    NgModule
   ],
   bootstrap: [AppComponent]
 })

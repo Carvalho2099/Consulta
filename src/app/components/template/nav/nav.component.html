@@ -1,65 +1,89 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="nav.component.css">
 
 </head>
+
 <body>
     <header class="cabecalho">
-        <h1>ProRads</h1>
+        <h1>ProRad</h1>
 
     </header>
     <main class="principal">
         <div class="conteudo">
             <nav class="modulos">
-                <div class="modulo verde">
-                    <h3>Novos</h3>
-                    <ul>
-                        <li><span>Exercicio A</span><button type="button" class="btn btn-success btn-hover-success">
-                            <i class="nc-print"></i>
-                            <span class="btn-text-bottom">Nova Consulta</span>
-                          </button></li>
-                        <li><span>Exercicio B</span><button type="button" class="btn btn-success btn-hover-success">
-                            <i class="nc-print"></i>
-                            <span class="btn-text-bottom">Nova Consulta</span>
-                          </button></li>
-                        <li><span>Exercicio C</span><button type="button" class="btn btn-success btn-hover-success">
-                            <i class="nc-print"></i>
-                            <span class="btn-text-bottom">Nova Consulta</span>
-                          </button></li>
-                    </ul>
-                    <button type="button" class="btn btn-success btn-hover-success">
-                        
-                        <span class="btn-text-bottom">Novo Paciente</span>
-                      </button>
-                    <h3>Atendidos</h3>
-                    <ul>
-                        <li><span>Exercicio A</span><button type="button" class="btn btn-success btn-hover-success">
-                            <i class="nc-print"></i>
-                            <span class="btn-text-bottom">Nova Consulta</span>
-                          </button></li>
-                        <li><span>Exercicio B</span><button type="button" class="btn btn-success btn-hover-success">
-                            <i class="nc-print"></i>
-                            <span class="btn-text-bottom">Nova Consulta</span>
-                          </button></li>
-                        <li><span>Exercicio C</span><button type="button" class="btn btn-success btn-hover-success">
-                            <i class="nc-print"></i>
-                            <span class="btn-text-bottom">Nova Consulta</span>
-                          </button></li>
-                    </ul>
+                <div class="modulo left">
+                    <div class="modulo novos">
+                        <h3>Novos</h3>
+                        <table>
+                            <tbody>
+                                <tr *ngFor="let item of naoAtendidos">
+                                    <td style="padding-bottom: 4px; padding-top: 5px;">
+                                        {{item.nomePaciente}}
+                                    </td>
+                                    <td style="padding-bottom: 4px; padding-top: 5px;">
+                                        <button type="button" class="btn btn-primary btn-hover-primary"
+                                            (click)="novaConsulta(item)" style="margin-left: 100px;">
+                                            <span class="btn-text-bottom">Nova Consulta</span>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div style="text-align: center; padding-bottom: 4px;">
+                            <button type="button" class="btn btn-primary btn-hover-primary">
+                                <span class="btn-text-bottom">Novo Paciente</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="modulo atendidos">
+                        <h3>Atendidos</h3>
+                        <table>
+                            <tbody>
+                                <tr *ngFor="let item of atendidos">
+                                    <td style="padding-bottom: 4px; padding-top: 5px;">
+                                        {{item.nomePaciente}}
+                                    </td>
+                                    <td style="padding-bottom: 4px; padding-top: 5px;">
+                                        <button type="button" class="btn btn-primary btn-hover-primary"
+                                            (click)="verConsulta(item)" style="margin-left: 100px;">
+                                            <span class="btn-text-bottom">Ver Consulta</span>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
                 </div>
-                <div class="modulo vermelho">
-                    <h3>Paciente Nome Paciente</h3>
-                    <ul>
-                       
-                    </ul>
-                </div>            
-              
+                <div class="modulo consulta">
+                    <h3>Paciente {{nome}}</h3>
+                    <div class="form-group">
+                        <input type="text" rows="16" cols="165" id="consulta" class="form-control"
+                            *ngIf="textoconsulta == null">
+                    </div>
+
+
+                    <textarea rows="16" cols="165" *ngIf="textoconsulta != null">
+                    {{textoconsulta}}
+               </textarea>
+
+                    <div style="text-align: center; padding-bottom: 10px;" *ngIf="esconderBotao">
+                        <button type="button" class="btn btn-primary btn-hover-primary" (click)="salvarConsulta()">
+                            <span class="btn-text-bottom">Salvar Consulta</span>
+                        </button>
+                    </div>
+                </div>
+
             </nav>
         </div>
     </main>
-   
+
 </body>
+
 </html>

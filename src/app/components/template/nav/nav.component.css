@@ -65,6 +65,8 @@ body{
     /* flex-basis: 32%; informa a largura do elemento */
     margin-bottom: 20px;
     border-radius: 5px;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 .modulo > h3{
@@ -74,6 +76,8 @@ body{
    font-size: 1.5rem;
    padding: 10px 20px;
    background: #1867c0; 
+   font-weight: bold;
+   text-align: center;
 }
 .modulo > ul{
     margin: 0px;
@@ -94,16 +98,18 @@ body{
     background-color: #EEE;
 }
 
-.modulo.verde{ border: 2px solid #4CAF50;
+.modulo.novos, .atendidos{ border: 2px solid #1867c0;
 width: 300px;
 max-height: 500px;
 }
-.modulo.verde > h3{ background-color: #4CAF50;}
+.modulo.novos > h3{ background-color: #1867c0;}
+.modulo.atendidos > h3{ background-color: #1867c0;}
 
-.modulo.vermelho{ border: 2px solid #F44336;
-width: 850px;
-max-height: 500px;}
-.modulo.vermelho > h3{ background-color: #F44336;}
+.modulo.consulta{ border: 2px solid #1867c0;
+width: 840px;
+height: 430px;}
+.modulo.consulta > h3{ background-color: #1867c0;}
+
 
 
 
